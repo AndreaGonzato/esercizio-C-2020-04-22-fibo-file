@@ -41,11 +41,11 @@ unsigned long *fibonacci_array(unsigned int n)
 
 int min_string_len(int number)
 {
-	int result = (int) (ceil(log10(labs(number))) + 1) * sizeof(char);
+	if (number == 0)
+		return 2;
+	int result = (int) (floor(log10(labs(number))) + 2);
 	if (number < 0)
 		result++;
-	if (result < 2)
-		result = 2;
 	return result;
 }
 
@@ -60,7 +60,7 @@ char *itoa_printf(int number)
 int main()
 {
 	unsigned long *fibonacci_result = fibonacci_array(FIB_INDEX);
-	int fd = open("fibonacci.txt", O_WRONLY | O_CREAT | O_TRUNC, 00644);
+	int fd = open("/home/tfonda/fibonacci.txt", O_WRONLY | O_CREAT | O_TRUNC, 00644);
 	if (fd == -1) {
 		perror("open() error");
 		exit(EXIT_FAILURE);
