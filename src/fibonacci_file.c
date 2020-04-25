@@ -39,7 +39,7 @@ unsigned long *fibonacci_array(unsigned int n)
 	return ret;
 }
 
-int min_string_len(int number)
+int min_string_len(unsigned long number)
 {
 	if (number == 0)
 		return 2;
@@ -49,11 +49,11 @@ int min_string_len(int number)
 	return result;
 }
 
-char *itoa_printf(int number)
+char *itoa_printf(unsigned long number)
 {
 	int len = min_string_len(number);
 	char *result = calloc(len, sizeof(char));
-	snprintf(result, len, "%d", number);
+	snprintf(result, len, "%lu", number);
 	return result;
 }
 
