@@ -38,6 +38,7 @@ int main(){
 		if(res == -1){
 			perror("write()");
 		}
+		free(str);
 	}
 
 	// close file
